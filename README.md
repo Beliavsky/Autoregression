@@ -2,8 +2,7 @@
 
 On Windows, I used OpenAI Codex CLI to generate the code here, using the instructions in prompt.txt. The `Approval Mode` was `Full Access`.
 The code was required to run with gfortran and ifx with debugging options and to pass `fortitude check`.
-The code is commented so that documentation can be created using [FORD](https://github.com/Fortran-FOSS-Programmers/ford).
-Here is sample truncated output of the program:
+The code is commented so that documentation can be created using [FORD](https://github.com/Fortran-FOSS-Programmers/ford). Codex took about 15 minutes to create a working program. Here is sample truncated output.
 
 ```
 AR Monte Carlo experiment configuration:
