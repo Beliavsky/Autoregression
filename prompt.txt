@@ -1,0 +1,51 @@
+Write, compile and run a Fortran module m.f90 and main program xar.f90
+that simulates an AR(3) process with AR coefficients [0.1, 0.1, -0.1],
+computes the autocorrelations, and verifies that the empirical and
+theoretical ACF match. Verify that the normal RNG you use produces
+variates with mean 0, variance 1, and kurtosis 3. Put all procedures
+in a module. Use assumed shape array arguments when possible.
+Make procedures PURE when possible. Declare real variables as real(kind=dp) with dp a KIND
+parameter. At the beginning of the program print the parameters used, such
+as the number of observations.
+
+Fit successive orders of AR models to the simulated data and identify
+the best AR orders using AICC and BIC. Show the estimated AR
+coefficients alongside the true ones. Simulate nsim=10 time series
+each of length nobs=1000 and tabulate how often AICC and BIC choose
+various model orders. Print detailed results for all of the simulated
+time series. Print the time taken by the program using the cpu_time
+subroutine.
+
+Add brief comments within the main program and each
+procedure explaining what they do. Format the comments so that the FORD
+tool can produce documentation from them.
+
+Use !! for documentation comments attached to the nearest code element
+(module, submodule, procedure, variable) that precedes the comment
+line.
+
+Place !! comments on the same line as a declaration or on following
+lines immediately after the declaration.
+
+For multi-line doc blocks, start with !!* and then continue the block
+with single-bang ! lines; they’ll be joined to the same doc block.
+
+Assume that the gfortran compiler is installed. Use the compiler options
+-O0 -Wall -Werror=unused-parameter -Werror=unused-variable -Werror=unused-function -Wno-maybe-uninitialized -Wno-surprising -fbounds-check -static -g -fmodule-private
+
+Verify that program also compiles and runs with the ifx compiler using the options
+/nologo /traceback /check:bounds /check:uninit /warn:all /warn:unused /gen-interfaces /warn:interfaces /F512000000
+
+Create a batch file compile.bat that compiles the source files into executables using gfortran and ifx.
+
+To check style, run fortitude check foo.f90 for each source file foo.f90 you create
+after you verify that it compiles. Leave the executables created by the compilers in the
+current directory.
+
+Create a new git repository and commit source files to git once they
+compile and run properly. Assume git commands are available.
+
+Once the code is finished, use ford to create documentation from the comments
+you have embedded in the code.
+
+If any of gfortran, ifx, ford, fortitude, or git are unavailable, give an error message and quit.
